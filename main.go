@@ -1,34 +1,67 @@
 package suspicious
 
-//El is the element type
+// Version is just that
+const Version = "v1.0.0"
+
+// El is
 type El = uint64
 
-// S is the variable length slice of El type
+// S is
 type S []El
 
-// ElV is the vector element type
-type ElV = int32
+// D is
+func (b1 S) D(b2 S) int {
+	return 0
+}
 
-// V is the variable length vector type
-type V = []ElV
-
-// I is a struct
+// I is
 type I struct {
 	x int
 	y int
 }
 
-// NewI returns an I
-func NewI() I {
-	return I{}
+// SE is
+type SE interface {
+	N() ([]string, uint8)
 }
 
-// F is a function
-func (i I) F(s S, v V) (S, V) {
-	return s, v
+// SI is
+type SI interface {
+	N() string
 }
 
-// F2 is another function
-func (i I) F2(s S, v V) S {
-	return s
+// NewI generates I
+func NewI(x, y int) I {
+	return I{x, y}
+}
+
+// VEl is
+type VEl = int32
+
+// V is
+type V = []VEl
+
+// CalcSignature returns
+func (i *I) CalcSignature(b S, s V) S {
+	return b
+}
+
+// SIt is
+type SIt struct {
+	x int
+	y int
+	i *I
+}
+
+// NewSIt returns a structure
+func (i *I) NewSIt(x, y int) *SIt {
+
+	si := SIt{x, y, i}
+
+	return &si
+}
+
+// N is
+func (si *SIt) N(b S) S {
+	return b
 }
