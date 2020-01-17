@@ -10,7 +10,7 @@ type S []El
 type ElV = int32
 
 // V is the variable length vector type
-type V = []El
+type V = []ElV
 
 // I is a struct
 type I struct {
