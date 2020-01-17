@@ -10,14 +10,25 @@ type S []El
 type ElV = int32
 
 // V is the variable length vector type
-type V = []ElV
+type V = []El
+
+// I is a struct
+type I struct {
+	x int
+	y int
+}
+
+// NewI returns an I
+func NewI() I {
+	return I{}
+}
 
 // F is a function
-func F(s S, v V) (S, V) {
+func (i I) F(s S, v V) (S, V) {
 	return s, v
 }
 
 // F2 is another function
-func F2(s S, v V) S {
+func (i I) F2(s S, v V) S {
 	return s
 }
