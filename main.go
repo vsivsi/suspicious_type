@@ -30,6 +30,16 @@ type SI interface {
 	N() string
 }
 
+// SIType is
+type SIType struct {
+	s string
+}
+
+// N is
+func (sit SIType) N() string {
+	return sit.s
+}
+
 // NewI generates I
 func NewI(x, y int) I {
 	return I{x, y}
@@ -41,8 +51,8 @@ type VEl = int32
 // V is
 type V = []VEl
 
-// CalcSignature returns
-func (i *I) CalcSignature(b S, s V) S {
+// CS returns
+func (i *I) CS(f SI, b S, s V) S {
 	return b
 }
 
